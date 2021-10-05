@@ -24,7 +24,7 @@ public class CommentServiceTest {
     Timestamp timestampTest = new Timestamp(new Date().getTime());
 
     @Test
-    public void testGetAllComments() throws InterruptedException {
+    public void testGetAllComments() {
         VacationRequest vacationRequest1 = new VacationRequest();
         vacationRequest1.setId(1L);
         User user1 = new User();

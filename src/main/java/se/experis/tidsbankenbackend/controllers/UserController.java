@@ -8,7 +8,7 @@ import se.experis.tidsbankenbackend.services.UserService;
 
 @RestController
 @CrossOrigin(origins = "*")
-@RequestMapping("/api/users")
+@RequestMapping("/api/user")
 public class UserController {
     @Autowired
     private UserService userService;

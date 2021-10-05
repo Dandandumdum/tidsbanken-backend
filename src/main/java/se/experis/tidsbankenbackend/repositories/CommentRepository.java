@@ -10,5 +10,5 @@ import java.util.List;
 public interface CommentRepository extends JpaRepository<Comment, Long> {
     List<Comment> findAllByUser (Long id);
     List<Comment> findAllByVacationRequest (Long id);
-    List<Comment> streamAllByTimestamp ();
+
 }

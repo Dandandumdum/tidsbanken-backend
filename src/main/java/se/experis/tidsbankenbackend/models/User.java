@@ -35,10 +35,11 @@ public class User {
 
     public User(){}
 
-    public User(Long id, String profilePic, boolean isAdmin){
+    public User(Long id, String profilePic, boolean isAdmin , List<Comment> comment){
       this.setId(id);
       this.setProfilePic(profilePic);
       this.setAdmin(isAdmin);
+      this.setComments(comment);
     }
 
     public Long getId() {

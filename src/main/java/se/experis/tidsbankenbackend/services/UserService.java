@@ -16,6 +16,12 @@ public class UserService {
      and if it is then a HttpStatus.NO_CONTENT or HttpStatus.NOT_FOUND is sent in the response entity.*/
     @Autowired
     private UserRepository userRepository;
+
+    public  ResponseEntity<String> getOwnUser(Long id){
+        var redirectUrl = "/api/user/:" + id ;
+        return new ResponseEntity<>(redirectUrl, HttpStatus.SEE_OTHER);
+
+    }
     //Retrieves all users from the User Table in the database, returning them in as a List within a Response Entity
     public ResponseEntity<List<User>> getAllUsers(){
         List<User> users = userRepository.findAll();
@@ -49,6 +55,7 @@ public class UserService {
         returnUser = userRepository.save(user);
         return new ResponseEntity<>(returnUser, HttpStatus.OK);
     }
+
     //Deletes a specified user based upon their id, returning the id within a Response Entity
     public ResponseEntity<Long> deleteUser(Long id){
         if(userRepository.existsById(id)) {
