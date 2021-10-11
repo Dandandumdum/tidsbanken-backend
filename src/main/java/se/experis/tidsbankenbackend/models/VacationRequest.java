@@ -33,6 +33,7 @@ public class VacationRequest {
         return "/api/users"+ getUser().getId();
     }
 
+    @Nullable
     @ManyToOne
     @JoinColumn(name ="moderator_id")
     private Moderator moderator;
@@ -57,11 +58,12 @@ public class VacationRequest {
 
     public VacationRequest(){}
 
-    public VacationRequest(Long id, String title, String periodStart, String periodEnd){
+    public VacationRequest(Long id, String title, String periodStart, String periodEnd, User user){
         this.setId(id);
         this.setTitle(title);
         this.setPeriodStart(periodStart);
         this.setPeriodEnd(periodEnd);
+        this.setUser(user);
     }
 
 
@@ -104,6 +106,7 @@ public class VacationRequest {
     public void setUser(User user) {
         this.user = user;
     }
+
 
     @Nullable
     public List<Comment> getComments() {

@@ -5,7 +5,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import se.experis.tidsbankenbackend.models.User;
+import se.experis.tidsbankenbackend.models.VacationRequest;
 import se.experis.tidsbankenbackend.repositories.UserRepository;
+import se.experis.tidsbankenbackend.repositories.VacationRequestRepository;
 
 import java.util.List;
 
@@ -16,6 +18,7 @@ public class UserService {
      and if it is then a HttpStatus.NO_CONTENT or HttpStatus.NOT_FOUND is sent in the response entity.*/
     @Autowired
     private UserRepository userRepository;
+    private VacationRequestRepository vacationRequestRepository;
 
     public  ResponseEntity<String> getOwnUser(Long id){
         var redirectUrl = "/api/user/:" + id ;
@@ -62,5 +65,12 @@ public class UserService {
             userRepository.deleteById(id);
             return new ResponseEntity<>(id,HttpStatus.OK);
         }else return new ResponseEntity<>(id, HttpStatus.NOT_FOUND);
+    }
+
+    public ResponseEntity<List<VacationRequest>> getAllVacationRequestsByUserId(Long id){
+        List<VacationRequest> requests = vacationRequestRepository.findAllByUser(id);
+        if(!requests.isEmpty()){
+            return new ResponseEntity<>(requests, HttpStatus.OK);
+        }else return new ResponseEntity<>(requests, HttpStatus.NO_CONTENT);
     }
 }

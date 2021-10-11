@@ -33,6 +33,8 @@ public class User {
     @OneToMany (mappedBy = "user")
     private List<IneligiblePeriod> ineligiblePeriods =new ArrayList<>();
 
+//    private String redirectUrl = "/api/user/:" + getId().toString();
+
     public User(){}
 
     public User(Long id, String profilePic, boolean isAdmin , List<Comment> comment){
@@ -75,4 +77,30 @@ public class User {
     public void setComments(@Nullable List<Comment> comments) {
         this.comments = comments;
     }
+
+    @Nullable
+    public List<VacationRequest> getVacationRequests() {
+        return vacationRequests;
+    }
+
+    public void setVacationRequests(@Nullable List<VacationRequest> vacationRequests) {
+        this.vacationRequests = vacationRequests;
+    }
+
+    @Nullable
+    public List<IneligiblePeriod> getIneligiblePeriods() {
+        return ineligiblePeriods;
+    }
+
+    public void setIneligiblePeriods(@Nullable List<IneligiblePeriod> ineligiblePeriods) {
+        this.ineligiblePeriods = ineligiblePeriods;
+    }
+
+ /*   public String getRedirectUrl() {
+        return redirectUrl;
+    }
+
+    public void setRedirectUrl(String redirectUrl) {
+        this.redirectUrl = redirectUrl;
+    }*/
 }
