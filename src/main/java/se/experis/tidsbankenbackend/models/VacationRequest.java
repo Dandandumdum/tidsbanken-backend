@@ -33,6 +33,16 @@ public class VacationRequest {
         return "/api/users"+ getUser().getId();
     }
 
+    @ManyToOne
+    @JoinColumn(name ="moderator_id")
+    private Moderator moderator;
+    @JsonIgnore
+    @Nullable
+    @JsonGetter("moderator")
+    public String moderator(){
+        return "/api/moderators"+ getModerator().getId();
+    }
+
     @OneToOne
     @JoinColumn(name = "status_id")
     private VacationRequestStatus statusId;
@@ -102,5 +112,13 @@ public class VacationRequest {
 
     public void setComments(@Nullable List<Comment> comments) {
         this.comments = comments;
+    }
+
+    public Moderator getModerator() {
+        return moderator;
+    }
+
+    public void setModerator(Moderator moderator) {
+        this.moderator = moderator;
     }
 }

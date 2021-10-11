@@ -3,6 +3,7 @@ package se.experis.tidsbankenbackend;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import se.experis.tidsbankenbackend.models.Comment;
 import se.experis.tidsbankenbackend.models.User;
@@ -38,6 +39,11 @@ public class UserServiceTest {
         Mockito.when(mockUserService.getUserById(1L)).thenReturn(ResponseEntity.ok(user1));
         user1.setProfilePic("Dog Pic");
         Mockito.when(mockUserService.updateUser(user1));
+    }
+    @Test
+    public void testAddNewUser(){
+        Mockito.when(mockUserService.addUser(user1)).thenReturn(new ResponseEntity<>(user1, HttpStatus.CREATED));
+        assertEquals(new ResponseEntity<>(user1, HttpStatus.CREATED), mockUserService.addUser(user1));
     }
 
 }
