@@ -3,9 +3,12 @@ package se.experis.tidsbankenbackend.models;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.lang.Nullable;
+import se.experis.tidsbankenbackend.services.VacationRequestService;
+
 import javax.persistence.Table;
 
 import javax.persistence.*;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,6 +29,7 @@ public class VacationRequest {
     @ManyToOne
     @JoinColumn(name ="owner_id")
     private User user;
+
     @JsonIgnore
     @Nullable
     @JsonGetter("user")
@@ -50,11 +54,15 @@ public class VacationRequest {
 
     @JsonIgnore
     @JsonGetter("status")
-    public String status (){return "/api/statuses/" + statusId.getId();}
+    public String status (){return "/api/statuses/" + getStatusId().getId();}
 
     @Nullable
     @OneToMany (mappedBy = "user")
     private List<Comment> comments = new ArrayList<>();
+
+    private boolean updated;
+    private Timestamp updatedTimestamp;
+
 
     public VacationRequest(){}
 
@@ -64,6 +72,7 @@ public class VacationRequest {
         this.setPeriodStart(periodStart);
         this.setPeriodEnd(periodEnd);
         this.setUser(user);
+        this.setUpdated(false);
     }
 
 
@@ -123,5 +132,29 @@ public class VacationRequest {
 
     public void setModerator(Moderator moderator) {
         this.moderator = moderator;
+    }
+
+    public VacationRequestStatus getStatusId() {
+        return statusId;
+    }
+
+    public void setStatusId(VacationRequestStatus statusId) {
+        this.statusId = statusId;
+    }
+
+    public boolean isUpdated() {
+        return updated;
+    }
+
+    public void setUpdated(boolean updated) {
+        this.updated = updated;
+    }
+
+    public Timestamp getUpdatedTimestamp() {
+        return updatedTimestamp;
+    }
+
+    public void setUpdatedTimestamp(Timestamp updatedTimestamp) {
+        this.updatedTimestamp = updatedTimestamp;
     }
 }

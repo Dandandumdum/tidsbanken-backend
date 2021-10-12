@@ -20,8 +20,9 @@ public class UserService {
     private UserRepository userRepository;
     private VacationRequestRepository vacationRequestRepository;
 
-    public  ResponseEntity<String> getOwnUser(Long id){
-        var redirectUrl = "/api/user/:" + id ;
+    public  ResponseEntity<String> getOwnUser(){
+        User currentUser = new User();
+        var redirectUrl = "/api/user/:" + currentUser.getId() ;
         return new ResponseEntity<>(redirectUrl, HttpStatus.SEE_OTHER);
 
     }

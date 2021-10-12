@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.verify;
 
 public class UserServiceTest {
 
@@ -24,9 +25,9 @@ public class UserServiceTest {
 
     @Test
     public void testGetUser(){
-        //User user1 = new User(1L, "CAT PIC", false);
-        Mockito.when(mockUserService.getOwnUser(user1.getId())).thenReturn(ResponseEntity.ok(redirectUrl));
-        assertEquals(ResponseEntity.ok("/api/user/:1"),mockUserService.getOwnUser(user1.getId()));
+        String redirectUrl = "/api/user/:" + user1.getId().toString() ;
+        Mockito.when(mockUserService.getOwnUser()).thenReturn(ResponseEntity.ok(redirectUrl));
+        assertEquals(ResponseEntity.ok("/api/user/:1"),mockUserService.getOwnUser());
     }
 
     @Test
@@ -47,10 +48,12 @@ public class UserServiceTest {
         assertEquals(new ResponseEntity<>(user1, HttpStatus.CREATED), mockUserService.addUser(user1));
     }
     @Test
-    public void testDeleteUser(){
+    public void testDeleteUserById(){
         User user2 = new User(2L , "Whale Pic", false, null);
         Mockito.when(mockUserService.getUserById(2L)).thenReturn(ResponseEntity.ok(user2));
         Mockito.when(mockUserService.deleteUser(2L)).thenReturn(ResponseEntity.ok(2L));
+        mockUserService.deleteUser(2L);
+        verify(mockUserService).deleteUser(user2.getId());
 
         assertEquals(ResponseEntity.ok(2L), mockUserService.deleteUser(2L));
     }

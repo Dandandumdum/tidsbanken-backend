@@ -1,5 +1,7 @@
 package se.experis.tidsbankenbackend.models;
 
+import se.experis.tidsbankenbackend.enums.RequestState;
+
 import javax.persistence.*;
 
 @Entity
@@ -10,11 +12,11 @@ public class VacationRequestStatus {
     private Long id;
 
     @Column (name = "status")
-    private String status;
+    private RequestState status;
 
     public VacationRequestStatus(){}
 
-    public VacationRequestStatus(Long id, String status){
+    public VacationRequestStatus(Long id, RequestState status){
         this.setId(id);
         this.setStatus(status);
     }
@@ -27,11 +29,11 @@ public class VacationRequestStatus {
         this.id = id;
     }
 
-    public String getStatus() {
+    public RequestState getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(RequestState status) {
         this.status = status;
     }
 }
