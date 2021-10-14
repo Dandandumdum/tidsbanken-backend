@@ -1,4 +1,4 @@
-package se.experis.tidsbankenbackend;
+package se.experis.tidsbankenbackend.controllerTests;
 
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
@@ -18,7 +18,7 @@ import java.util.concurrent.TimeUnit;
 
 import static org.junit.Assert.assertEquals;
 
-public class CommentServiceTest {
+public class CommentControllerTest {
 
     CommentService mockCommentService = Mockito.mock(CommentService.class);
     Timestamp timestampTest = new Timestamp(new Date().getTime());

@@ -23,7 +23,9 @@ public class VacationRequestService {
 
     @Autowired
     private VacationRequestRepository vacationRequestRepository;
+    @Autowired
     private UserRepository userRepository;
+    @Autowired
     private ModeratorRepository moderatorRepository;
 
     public ResponseEntity<List<VacationRequest>> getAllVacationRequests(User user){

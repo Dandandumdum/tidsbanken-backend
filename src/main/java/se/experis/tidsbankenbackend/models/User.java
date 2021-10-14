@@ -3,13 +3,14 @@ package se.experis.tidsbankenbackend.models;
 
 import org.springframework.lang.Nullable;
 import javax.persistence.Table;
+import javax.persistence.Entity;
 
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "Users")
+@Table(name = "users")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

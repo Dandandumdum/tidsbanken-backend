@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 import se.experis.tidsbankenbackend.models.Moderator;
 
 @Repository
-public interface ModeratorRepository extends JpaRepository <Moderator, Long> {
+public interface ModeratorRepository extends JpaRepository<Moderator, Long> {
     Moderator getByUserId (Long id);
 }
 

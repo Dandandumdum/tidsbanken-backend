@@ -3,6 +3,8 @@ package se.experis.tidsbankenbackend.models;
 import se.experis.tidsbankenbackend.enums.RequestState;
 
 import javax.persistence.*;
+import javax.persistence.Table;
+import javax.persistence.Entity;
 
 @Entity
 @Table(name = "VactionRequestStatus")

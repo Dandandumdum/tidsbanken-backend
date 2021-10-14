@@ -19,6 +19,7 @@ public class CommentService {
 
     @Autowired
     private CommentRepository commentRepository;
+
     public Comparator<Comment> sortByTimestamp = (o1, o2) -> o2.getTimestamp().compareTo(o1.getTimestamp());
 
     public ResponseEntity<List<Comment>> getAllComments(){

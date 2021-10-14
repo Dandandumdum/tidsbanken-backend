@@ -6,6 +6,7 @@ import org.springframework.lang.Nullable;
 import se.experis.tidsbankenbackend.services.VacationRequestService;
 
 import javax.persistence.Table;
+import javax.persistence.Entity;
 
 import javax.persistence.*;
 import java.sql.Timestamp;

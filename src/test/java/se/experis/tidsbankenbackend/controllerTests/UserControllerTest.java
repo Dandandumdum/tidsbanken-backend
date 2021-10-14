@@ -1,4 +1,4 @@
-package se.experis.tidsbankenbackend;
+package se.experis.tidsbankenbackend.controllerTests;
 
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -16,7 +16,7 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.verify;
 
-public class UserServiceTest {
+public class UserControllerTest {
 
     UserService mockUserService = Mockito.mock(UserService.class);
     User user1 = new User(1L, "CAT PIC", false, null );

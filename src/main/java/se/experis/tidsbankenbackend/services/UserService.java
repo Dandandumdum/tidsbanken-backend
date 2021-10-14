@@ -18,6 +18,7 @@ public class UserService {
      and if it is then a HttpStatus.NO_CONTENT or HttpStatus.NOT_FOUND is sent in the response entity.*/
     @Autowired
     private UserRepository userRepository;
+    @Autowired
     private VacationRequestRepository vacationRequestRepository;
 
     public  ResponseEntity<String> getOwnUser(){

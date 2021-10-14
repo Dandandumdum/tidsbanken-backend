@@ -5,9 +5,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
+import javax.persistence.Table;
+import javax.persistence.Entity;
 
 @Entity
-@Table(name = "IneligiblePeriod")
+@Table(name = "ineligible_period")
 public class IneligiblePeriod {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

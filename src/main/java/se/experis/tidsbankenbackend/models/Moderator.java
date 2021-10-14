@@ -1,6 +1,8 @@
 package se.experis.tidsbankenbackend.models;
 
 import org.springframework.lang.Nullable;
+import javax.persistence.Table;
+import javax.persistence.Entity;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -27,7 +29,6 @@ public class Moderator {
         this.setUser(userId);
 
     }
-
     public Moderator() {
 
     }

@@ -11,5 +11,5 @@ import java.util.List;
 public interface VacationRequestRepository  extends JpaRepository<VacationRequest, Long> {
     List<VacationRequest> findAllByUser (Long id);
     List<VacationRequest> findAllByStatusId_Status (String status);
-    List<VacationRequest> findAllByUser_Admin (Boolean isAdmin);
+
 }

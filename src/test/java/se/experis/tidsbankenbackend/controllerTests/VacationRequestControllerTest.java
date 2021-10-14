@@ -1,4 +1,4 @@
-package se.experis.tidsbankenbackend;
+package se.experis.tidsbankenbackend.controllerTests;
 
 import org.junit.Before;
 import org.junit.Rule;
@@ -24,7 +24,7 @@ import java.util.Optional;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 
-public class VacationRequestServiceTest {
+public class VacationRequestControllerTest {
 
     VacationRequestService mockVacationRequestService = Mockito.mock(VacationRequestService.class);
 
